@@ -1,12 +1,12 @@
-import express from 'express';
+import express from "express";
 
 const router = express.Router();
 
 const moduleRoutes = [
   {
-    path: '',
-    routes: ""
-  }
+    path: "",
+    routes: "",
+  },
 ];
 
 moduleRoutes.forEach((route) => {

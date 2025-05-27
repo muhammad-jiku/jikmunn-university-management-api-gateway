@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Response } from "express";
 
 interface IResponse {
   success: boolean;
@@ -24,14 +24,14 @@ const sendResponse = <T>(
       total: number;
     };
     data?: T;
-  }
+  },
 ) => {
   const response: IResponse = {
     success: data.success,
     statusCode: data.statusCode,
-    message: data.message || 'Success',
+    message: data.message || "Success",
     meta: data.meta,
-    data: data.data || null
+    data: data.data || null,
   };
 
   res.status(data.statusCode).json(response);

@@ -1,16 +1,16 @@
-import { AxiosError } from 'axios';
-import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
-import { ZodError } from 'zod';
-import config from '../../config';
-import ApiError from '../../errors/apiError';
-import handleZodError from '../../errors/handleZodError';
-import logger from '../../shared/logger';
+import { AxiosError } from "axios";
+import { ErrorRequestHandler, NextFunction, Request, Response } from "express";
+import { ZodError } from "zod";
+import config from "../../config";
+import ApiError from "../../errors/apiError";
+import handleZodError from "../../errors/handleZodError";
+import logger from "../../shared/logger";
 
 const globalExceptionHandler: ErrorRequestHandler = (
   error,
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   let errorMessages: {
     path: string;
@@ -18,11 +18,11 @@ const globalExceptionHandler: ErrorRequestHandler = (
   }[] = [];
 
   let statusCode = 500;
-  let message = 'Something went wrong';
+  let message = "Something went wrong";
 
   if (error instanceof AxiosError) {
     statusCode = error.response?.status || 500;
-    message = error.response?.data?.message || 'Something went wrong';
+    message = error.response?.data?.message || "Something went wrong";
     errorMessages = error.response?.data?.errorMessages || [];
   } else if (error instanceof ZodError) {
     const simplifiedError = handleZodError(error);
@@ -35,9 +35,9 @@ const globalExceptionHandler: ErrorRequestHandler = (
     errorMessages = error?.message
       ? [
           {
-            path: '',
-            message: error?.message
-          }
+            path: "",
+            message: error?.message,
+          },
         ]
       : [];
   } else if (error instanceof Error) {
@@ -45,9 +45,9 @@ const globalExceptionHandler: ErrorRequestHandler = (
     errorMessages = error?.message
       ? [
           {
-            path: '',
-            message: error?.message
-          }
+            path: "",
+            message: error?.message,
+          },
         ]
       : [];
   }
@@ -56,7 +56,7 @@ const globalExceptionHandler: ErrorRequestHandler = (
     success: false,
     message,
     errorMessages,
-    stack: config.env !== 'production' ? error?.stack : undefined
+    stack: config.env !== "production" ? error?.stack : undefined,
   });
 };
 
