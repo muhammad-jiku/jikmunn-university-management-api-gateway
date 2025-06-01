@@ -2,22 +2,42 @@ import express from "express";
 import { AcademicDeptRoutes } from "../modules/academicDept/academicDept.routes";
 import { AcademicFacultyRoutes } from "../modules/academicFaculty/academicFaculty.routes";
 import { AcademicSemRoutes } from "../modules/academicSem/academicSem.routes";
+import { AdminRoutes } from "../modules/admin/admin.routes";
 import { BuildingRoutes } from "../modules/building/building.routes";
 import { CourseRoutes } from "../modules/course/course.routes";
+import { FacultyRoutes } from "../modules/faculty/faculty.routes";
 import { ManagementDeptRoutes } from "../modules/managementDept/managementDept.routes";
 import { OfferedCourseRoutes } from "../modules/offeredCourse/offeredCourse.routes";
 import { OfferedCourseScheduleRoutes } from "../modules/offeredCourseSchedule/offeredCourseSchedule.routes";
 import { OfferedCourseSectionRoutes } from "../modules/offeredCourseSection/offeredCourseSection.routes";
 import { RoomRoutes } from "../modules/room/room.routes";
 import { SemRegistrationRoutes } from "../modules/semRegistration/semRegistration.routes";
+import { StudentRoutes } from "../modules/student/student.routes";
 import { StudentEnrolledCourseRoutes } from "../modules/studentEnrolledCourse/studentEnrolledCourse.routes";
 import { StudentEnrolledCourseMarkRoutes } from "../modules/studentEnrolledCourseMark/studentEnrolledCourseMark.routes";
 import { StudentSemPaymentRoutes } from "../modules/studentSemPayment/studentSemPayment.routes";
+import { UserRoutes } from "../modules/user/user.routes";
 
 const router = express.Router();
 
 const moduleRoutes = [
   // ... routes
+  {
+    path: "/users",
+    route: UserRoutes,
+  },
+  {
+    path: "/admins",
+    route: AdminRoutes,
+  },
+  {
+    path: "/faculties",
+    route: FacultyRoutes,
+  },
+  {
+    path: "/students",
+    route: StudentRoutes,
+  },
   {
     path: "/academic-faculties",
     route: AcademicFacultyRoutes,
