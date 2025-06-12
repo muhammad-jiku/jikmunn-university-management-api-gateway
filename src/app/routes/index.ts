@@ -11,6 +11,7 @@ import { ManagementDeptRoutes } from "../modules/managementDept/managementDept.r
 import { OfferedCourseRoutes } from "../modules/offeredCourse/offeredCourse.routes";
 import { OfferedCourseScheduleRoutes } from "../modules/offeredCourseSchedule/offeredCourseSchedule.routes";
 import { OfferedCourseSectionRoutes } from "../modules/offeredCourseSection/offeredCourseSection.routes";
+import { PaymentRoutes } from "../modules/payment/payment.routes";
 import { RoomRoutes } from "../modules/room/room.routes";
 import { SemRegistrationRoutes } from "../modules/semRegistration/semRegistration.routes";
 import { StudentRoutes } from "../modules/student/student.routes";
@@ -98,6 +99,10 @@ const moduleRoutes = [
   {
     path: "/management-departments",
     route: ManagementDeptRoutes,
+  },
+  {
+    path: "/payments",
+    route: PaymentRoutes,
   },
 ];
 
